@@ -89,7 +89,7 @@ This **directly disrupts academic publishing**.
 - Express..
 
 ### Frontend
-- React (minimal UI)
+- React (minimal UI).
 
 ### Storage
 - IPFS (mock CID acceptable)
