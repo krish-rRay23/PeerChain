@@ -113,7 +113,7 @@ This **directly disrupts academic publishing**.
 6. After 3 passing reviews → escrow released  
 7. Late / failed reviews → payment forfeited  
 8. Blockchain emits full audit trail  
-9. RAG suggests 5 similar accepted papers  
+9. RAG suggests 5 similar accepted papers  ..
 
 ---
 
