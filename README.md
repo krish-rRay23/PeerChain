@@ -89,7 +89,7 @@ This **directly disrupts academic publishing**.
 - Express..
 
 ### Frontend
-- React (minimal UI)
+- React (minimal UI).
 
 ### Storage
 - IPFS (mock CID acceptable)
@@ -105,7 +105,7 @@ This **directly disrupts academic publishing**.
 
 ## ⚙️ Functional Requirements
 
-1. Author uploads paper → IPFS → CID stored on-chain  
+1. Author uploads paper → IPFS → CID stored on-chain ! 
 2. Smart contract assigns **exactly 3 reviewers**  
 3. Reviewers submit encrypted reviews → IPFS → CID on-chain  
 4. Backend calls LLM → score (0–100)  
