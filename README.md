@@ -86,7 +86,7 @@ This **directly disrupts academic publishing**.
 
 ### Backend
 - Node.js
-- Express
+- Express..
 
 ### Frontend
 - React (minimal UI)
