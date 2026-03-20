@@ -1,0 +1,473 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "type": "constructor",
+      "stateMutability": "undefined",
+      "payable": false,
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "OwnableInvalidOwner",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "owner"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "OwnableUnauthorizedAccount",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "account"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "OwnershipTransferred",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "previousOwner",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "newOwner",
+          "indexed": true
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "PaperSubmitted",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "paperId",
+          "indexed": true
+        },
+        {
+          "type": "string",
+          "name": "cid",
+          "indexed": false
+        },
+        {
+          "type": "address",
+          "name": "author",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "PaymentReleased",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "paperId",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "reviewer",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "amount",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "ReviewEvaluated",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "paperId",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "reviewer",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "score",
+          "indexed": false
+        },
+        {
+          "type": "bool",
+          "name": "passed",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "ReviewSubmitted",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "paperId",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "reviewer",
+          "indexed": false
+        },
+        {
+          "type": "string",
+          "name": "reviewCid",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "ReviewersAssigned",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "paperId",
+          "indexed": true
+        },
+        {
+          "type": "address[3]",
+          "name": "reviewers"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "PASS_SCORE",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint8",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "REVIEWER_PAYMENT",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "TOTAL_ESCROW",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "evaluateReview",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_paperId"
+        },
+        {
+          "type": "address",
+          "name": "_reviewer"
+        },
+        {
+          "type": "uint8",
+          "name": "_score"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getPaper",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_paperId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "tuple",
+          "name": "",
+          "components": [
+            {
+              "type": "uint256",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "name": "cid"
+            },
+            {
+              "type": "address",
+              "name": "author"
+            },
+            {
+              "type": "address[3]",
+              "name": "reviewers"
+            },
+            {
+              "type": "uint256",
+              "name": "reviewCount"
+            },
+            {
+              "type": "bool",
+              "name": "isCompleted"
+            },
+            {
+              "type": "bool",
+              "name": "isFunded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "isReviewer",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "paperCounter",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "papers",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": "id"
+        },
+        {
+          "type": "string",
+          "name": "cid"
+        },
+        {
+          "type": "address",
+          "name": "author"
+        },
+        {
+          "type": "uint256",
+          "name": "reviewCount"
+        },
+        {
+          "type": "bool",
+          "name": "isCompleted"
+        },
+        {
+          "type": "bool",
+          "name": "isFunded"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "registerReviewer",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "renounceOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "reviewerPool",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "reviews",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address",
+          "name": "reviewer"
+        },
+        {
+          "type": "string",
+          "name": "reviewCid"
+        },
+        {
+          "type": "uint8",
+          "name": "score"
+        },
+        {
+          "type": "bool",
+          "name": "isScored"
+        },
+        {
+          "type": "bool",
+          "name": "isPaid"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "submitPaper",
+      "constant": false,
+      "stateMutability": "payable",
+      "payable": true,
+      "inputs": [
+        {
+          "type": "string",
+          "name": "_cid"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "submitReview",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_paperId"
+        },
+        {
+          "type": "string",
+          "name": "_reviewCid"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "newOwner"
+        }
+      ],
+      "outputs": []
+    }
+  ]
+}
