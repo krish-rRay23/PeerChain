@@ -1,0 +1,270 @@
+/* Claude-inspired "Light & Warm" Design */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    /* Warm / Paper Palette (Light Mode) */
+    --bg-color: #fcfbf9;
+    /* Warm paper */
+    --card-bg: #ffffff;
+    --text-main: #393939;
+    /* Soft charcoal */
+    --text-muted: #747474;
+    --primary: #d97757;
+    /* Terra Cotta (Warm Accent) */
+    --primary-hover: #b95d3f;
+    --border-color: #e5e3dd;
+    /* Warm gray border */
+    --radius: 8px;
+    --font-serif: 'Merriweather', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+header h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2a2a2a;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+header nav {
+    display: flex;
+    gap: 2rem;
+    background: #f4f3ef;
+    /* Slightly darker than paper for contrast */
+    padding: 0.5rem 1.5rem;
+    border-radius: 99px;
+    border: 1px solid var(--border-color);
+}
+
+header nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+header nav a:hover {
+    color: var(--text-main);
+}
+
+/* Connect Wallet Button */
+.wallet-connect button {
+    background: #333333;
+    color: #fcfbf9;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.wallet-connect button:hover {
+    opacity: 0.9;
+}
+
+.wallet-connect span {
+    font-family: 'Monaco', monospace;
+    font-size: 0.8rem;
+    color: #666;
+    background: #ebe9e4;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+}
+
+/* Page Container */
+.page-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+p {
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+/* Cards */
+.paper-card,
+.log-entry,
+.review-modal {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-subtle);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.paper-card:hover {
+    border-color: #d1d1d1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Inputs */
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+}
+
+/* Custom File Input Styling - "Decent" & Clean */
+input[type="file"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 1.2rem;
+    background: #f0eee9;
+    /* Soft warm gray */
+    border: 1px solid #dcdad5;
+    padding: 0.8rem 1.4rem;
+    border-radius: 6px;
+    color: #444;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #e6e4df;
+    border-color: #ccc;
+    color: #222;
+}
+
+/* Buttons - Claude Style */
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--primary-hover);
+}
+
+button:disabled {
+    background: #e0ded9;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Logs */
+.log-entry {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1.5rem;
+}
+
+.log-type {
+    font-family: 'Monaco', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: #fbf0ec;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.log-details {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
