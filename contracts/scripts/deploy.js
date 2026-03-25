@@ -11,6 +11,7 @@ async function main() {
     await paperReview.waitForDeployment();
 
     console.log("PaperReview deployed to:", await paperReview.getAddress());
+    console.log("Deployment timestamp:", new Date().toISOString());
 
     // Save address to a file for frontend/backend to read
     const fs = require("fs");
