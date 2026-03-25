@@ -3,6 +3,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/// @title PaperReview - Decentralized Scientific Paper Review System
+/// @notice Manages paper submissions, reviewer assignments, and escrow payments
+/// @dev Uses Ownable for oracle-based review evaluation access control
 contract PaperReview is Ownable {
     struct Paper {
         uint256 id;
