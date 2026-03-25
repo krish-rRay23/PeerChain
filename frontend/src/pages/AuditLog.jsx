@@ -1,3 +1,4 @@
+// AuditLog.jsx - Displays transparent blockchain event history from the smart contract
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
