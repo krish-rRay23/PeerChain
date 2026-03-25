@@ -1,3 +1,4 @@
+// interactive_git.js - Utility script for creating structured git commit history
 const { execSync } = require('child_process');
 const readline = require('readline');
 const path = require('path');
