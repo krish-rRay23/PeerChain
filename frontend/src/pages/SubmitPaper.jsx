@@ -1,3 +1,4 @@
+// SubmitPaper.jsx - Handles paper upload to IPFS and on-chain submission with escrow
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
