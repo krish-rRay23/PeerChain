@@ -1,3 +1,7 @@
+/**
+ * PeerChain Demo Flow Script
+ * Simulates the full end-to-end peer review lifecycle on chain.
+ */
 const { ethers } = require("hardhat");
 // Node 18+ has native fetch. If on older node, install node-fetch.
 // const axios = require('axios'); // Unused
