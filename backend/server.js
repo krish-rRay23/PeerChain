@@ -1,3 +1,4 @@
+// PeerChain Backend Server - Oracle & IPFS Mock Service
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -138,6 +139,6 @@ app.post('/api/match-reviewers', (req, res) => {
 // --- Start Server ---
 const PORT = 3001;
 app.listen(PORT, async () => {
-    console.log(`Backend server running on port ${PORT}`);
+    console.log(`\n🚀 PeerChain Backend server running on http://localhost:${PORT}`);
     await initBlockchain();
 });
