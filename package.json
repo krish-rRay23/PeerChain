@@ -1,13 +1,13 @@
 {
   "name": "decentralized_scientific_paper_review",
   "version": "1.0.0",
-  "description": "",
+  "description": "Decentralized Scientific Paper Review - Blockchain & AI powered peer review platform",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["blockchain", "peer-review", "decentralized", "ethereum"],
+  "author": "PeerChain Team",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
