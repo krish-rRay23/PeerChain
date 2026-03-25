@@ -1,3 +1,4 @@
+// ReviewDashboard.jsx - Displays assigned papers and allows reviewers to submit reviews
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
