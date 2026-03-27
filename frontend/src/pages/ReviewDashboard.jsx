@@ -15,7 +15,7 @@ const ReviewDashboard = ({ account }) => {
 
     const fetchAssignedParticles = async () => {
         try {
-            const configRes = await fetch('http://localhost:3001/api/config');
+            const configRes = await fetch('/api/config');
             const config = await configRes.json();
             const provider = new ethers.BrowserProvider(window.ethereum);
             const contract = new ethers.Contract(config.address, config.abi, provider);
@@ -56,11 +56,11 @@ const ReviewDashboard = ({ account }) => {
             const formData = new FormData();
             formData.append('file', blob, 'review.txt');
 
-            const uploadRes = await fetch('http://localhost:3001/api/upload', { method: 'POST', body: formData });
+            const uploadRes = await fetch('/api/upload', { method: 'POST', body: formData });
             const { cid } = await uploadRes.json();
 
             // 2. Submit to Chain
-            const configRes = await fetch('http://localhost:3001/api/config');
+            const configRes = await fetch('/api/config');
             const config = await configRes.json();
             const provider = new ethers.BrowserProvider(window.ethereum);
             const signer = await provider.getSigner();
@@ -71,7 +71,7 @@ const ReviewDashboard = ({ account }) => {
 
             // 3. Trigger Oracle Evaluation (Backend)
             // In real world, backend watches event. Here we manually trigger for MVP instant feedback.
-            await fetch('http://localhost:3001/api/oracle/evaluate', {
+            await fetch('/api/oracle/evaluate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

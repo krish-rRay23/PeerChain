@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 const uploadToBackend = async (file) => {
     const formData = new FormData();
     formData.append('file', file);
-    const res = await fetch('http://localhost:3001/api/upload', {
+    const res = await fetch('/api/upload', {
         method: 'POST',
         body: formData
     });
@@ -20,7 +20,7 @@ const PAPER_REVIEW_ABI = [
     "event PaperSubmitted(uint256 indexed paperId, string cid, address author)"
 ];
 // We need to fetch the real address/ABI eventually, but for now assuming we pass it or fetch it.
-// Ideally we fetch from http://localhost:3001/contract-config.json if we exposed it, 
+// Ideally we fetch from /api/config if we exposed it, 
 // OR we just rely on `src/contract-config.json` if we copied it.
 // Let's assume we can fetch it from backend if we implemented that endpoint? 
 // No, backend writes to disk. Frontend can't read backend disk directly unless served.
@@ -44,7 +44,7 @@ const SubmitPaper = ({ account }) => {
 
             // Fetch address from backend (Need to implement endpoint or hardcode for MVP)
             // For MVP, I'll hardcode or fetch. Let's fetch.
-            const configRes = await fetch('http://localhost:3001/api/config');
+            const configRes = await fetch('/api/config');
             const config = await configRes.json();
 
             const contract = new ethers.Contract(config.address, config.abi, signer);

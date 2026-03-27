@@ -11,7 +11,7 @@ const AuditLog = () => {
 
     const fetchEvents = async () => {
         try {
-            const configRes = await fetch('http://localhost:3001/api/config');
+            const configRes = await fetch('/api/config');
             const config = await configRes.json();
 
             // Connect to provider (read-only is fine)

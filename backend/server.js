@@ -13,16 +13,10 @@ app.use(cors());
 app.use(express.json());
 
 // --- Mock IPFS Storage ---
-const upload = multer({ dest: 'uploads/' });
-
-// Create uploads dir if not exists
-if (!fs.existsSync('uploads')) {
-    fs.mkdirSync('uploads');
-}
+const upload = multer({ storage: multer.memoryStorage() });
 
 // Helper to compute a mock CID (SHA256 hash)
-const getMockCID = (filePath) => {
-    const fileBuffer = fs.readFileSync(filePath);
+const getMockCID = (fileBuffer) => {
     const hashSum = crypto.createHash('sha256');
     hashSum.update(fileBuffer);
     return "Qm" + hashSum.digest('hex').substring(0, 44); // Mock CID format
@@ -32,8 +26,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded');
     }
-    const cid = getMockCID(req.file.path);
-    // Rename file to CID for persistence if needed, or just keep temp
+    const cid = getMockCID(req.file.buffer);
     console.log(`File uploaded: ${req.file.originalname}, CID: ${cid}`);
     res.json({ cid });
 });
@@ -66,8 +59,8 @@ const initBlockchain = async () => {
         contractAddress = config.address;
         contractABI = config.abi;
 
-        // Connect to local Hardhat node
-        provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
+        // Connect to local Hardhat node or remote RPC
+        provider = new ethers.JsonRpcProvider(process.env.RPC_URL || "http://127.0.0.1:8545");
 
         // Use the first account (owner/deployer) for Oracle actions
         // In reality, Oracle should be a separate secure account.
@@ -137,8 +130,13 @@ app.post('/api/match-reviewers', (req, res) => {
 });
 
 // --- Start Server ---
-const PORT = 3001;
-app.listen(PORT, async () => {
-    console.log(`\n🚀 PeerChain Backend server running on http://localhost:${PORT}`);
-    await initBlockchain();
-});
+const PORT = process.env.PORT || 3001;
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, async () => {
+        console.log(`\n🚀 PeerChain Backend server running on http://localhost:${PORT}`);
+        await initBlockchain();
+    });
+}
+
+module.exports = app;
